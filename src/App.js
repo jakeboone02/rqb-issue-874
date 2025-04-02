@@ -1,23 +1,20 @@
-import React, { lazy, Suspense } from "react";
+import { QueryBuilderDndWithoutProvider } from "@react-querybuilder/dnd";
+import React from "react";
+import { QueryBuilder } from "react-querybuilder";
+import * as ReactDnD from "react-dnd";
+import * as ReactDndHTML5Backend from "react-dnd-html5-backend";
+import "react-querybuilder/dist/query-builder.css";
 import "./App.css";
-
-// Example of Lazily loaded Component
-const LazyLoadedFooter = lazy(() => {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(import("./Footer"));
-    }, 10000);
-  });
-});
 
 const App = () => {
   return (
-    <>
-      <h1 className="App">Webpack is configured!</h1>
-      <Suspense fallback={"Loading"}>
-        <LazyLoadedFooter />
-      </Suspense>
-    </>
+    <ReactDnD.DndProvider backend={ReactDndHTML5Backend.HTML5Backend}>
+      <QueryBuilderDndWithoutProvider
+        dnd={{ ...ReactDnD, ...ReactDndHTML5Backend }}
+      >
+        <QueryBuilder />
+      </QueryBuilderDndWithoutProvider>
+    </ReactDnD.DndProvider>
   );
 };
 
