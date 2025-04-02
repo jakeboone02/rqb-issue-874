@@ -40,5 +40,8 @@
     "react-dnd-html5-backend": "^16.0.1",
     "react-dom": "^19",
     "react-querybuilder": "^8.4.1"
+  },
+  "patchedDependencies": {
+    "@react-querybuilder/dnd@8.4.1": "patches/@react-querybuilder%2Fdnd@8.4.1.patch"
   }
 }

@@ -1,0 +1,84 @@
+diff --git a/dist/cjs/react-querybuilder_dnd.cjs.development.js b/dist/cjs/react-querybuilder_dnd.cjs.development.js
+index 8d25d98fc726c8b46b4f360e7fd29e255d449cd1..308a6ecb785af6aa41475adc2d2ee10289e46987 100644
+--- a/dist/cjs/react-querybuilder_dnd.cjs.development.js
++++ b/dist/cjs/react-querybuilder_dnd.cjs.development.js
+@@ -1322,13 +1322,16 @@ var useReactDnD = function useReactDnD2(dndParam) {
+           while (1) switch (_context.prev = _context.next) {
+             case 0:
+               _context.next = 2;
+-              return Promise.all([import("react-dnd")["catch"](function() {
+-                return null;
+-              }), import("react-dnd-html5-backend")["catch"](function() {
+-                return null;
+-              }), import("react-dnd-touch-backend")["catch"](function() {
+-                return null;
+-              })]);
++              return Promise.all(
++                // [
++                //   import("react-dnd")["catch"](function() {return null; }),
++                //   import("react-dnd-html5-backend")["catch"](function() {return null; }),
++                //   import("react-dnd-touch-backend")["catch"](function() {return null; }),
++                // ]
++                ['', '-html5-backend', '-touch-backend'].map(function(pn) {
++                  return import('react-dnd' + pn)["catch"](function(){return null})
++                })
++              );
+             case 2:
+               _yield$Promise$all = _context.sent;
+               _yield$Promise$all2 = _slicedToArray4(_yield$Promise$all, 3);
+diff --git a/dist/react-querybuilder_dnd.legacy-esm.js b/dist/react-querybuilder_dnd.legacy-esm.js
+index 9bb281cd2864037bc634e4acab1e1306e23f418e..68f144f716f2fc36410cf689e3cdddb15c0839b3 100644
+--- a/dist/react-querybuilder_dnd.legacy-esm.js
++++ b/dist/react-querybuilder_dnd.legacy-esm.js
+@@ -1301,13 +1301,16 @@ var useReactDnD = function useReactDnD2(dndParam) {
+           while (1) switch (_context.prev = _context.next) {
+             case 0:
+               _context.next = 2;
+-              return Promise.all([import("react-dnd")["catch"](function() {
+-                return null;
+-              }), import("react-dnd-html5-backend")["catch"](function() {
+-                return null;
+-              }), import("react-dnd-touch-backend")["catch"](function() {
+-                return null;
+-              })]);
++              return Promise.all(
++                // [
++                //   import("react-dnd")["catch"](function() {return null; }),
++                //   import("react-dnd-html5-backend")["catch"](function() {return null; }),
++                //   import("react-dnd-touch-backend")["catch"](function() {return null; }),
++                // ]
++                ['', '-html5-backend', '-touch-backend'].map(function(pn) {
++                  return import('react-dnd' + pn)["catch"](function(){return null})
++                })
++              );
+             case 2:
+               _yield$Promise$all = _context.sent;
+               _yield$Promise$all2 = _slicedToArray4(_yield$Promise$all, 3);
+diff --git a/dist/react-querybuilder_dnd.mjs b/dist/react-querybuilder_dnd.mjs
+index 45a34c437ead6784ece5a91b06817aba6690f1dc..a60791bfdf53547543bc9830130f8bb14750ec2a 100644
+--- a/dist/react-querybuilder_dnd.mjs
++++ b/dist/react-querybuilder_dnd.mjs
+@@ -1278,13 +1278,16 @@ var useReactDnD = function useReactDnD2(dndParam) {
+           while (1) switch (_context.prev = _context.next) {
+             case 0:
+               _context.next = 2;
+-              return Promise.all([import("react-dnd")["catch"](function() {
+-                return null;
+-              }), import("react-dnd-html5-backend")["catch"](function() {
+-                return null;
+-              }), import("react-dnd-touch-backend")["catch"](function() {
+-                return null;
+-              })]);
++              return Promise.all(
++                // [
++                //   import("react-dnd")["catch"](function() {return null; }),
++                //   import("react-dnd-html5-backend")["catch"](function() {return null; }),
++                //   import("react-dnd-touch-backend")["catch"](function() {return null; }),
++                // ]
++                ['', '-html5-backend', '-touch-backend'].map(function(pn) {
++                  return import('react-dnd' + pn)["catch"](function(){return null})
++                })
++              );
+             case 2:
+               _yield$Promise$all = _context.sent;
+               _yield$Promise$all2 = _slicedToArray4(_yield$Promise$all, 3);
